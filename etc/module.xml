@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="MagentoEse_B2BPricingSampleData" setup_version="0.0.1">
+        <sequence>
+            <module name="Magento_B2b"/>
+            <module name="Magento_Company"/>
+            <module name="Magento_Customer"/>
+            <module name="Magento_TargetRule"/>
+            <module name="Magento_NegotiableQuote"/>
+            <module name="Magento_RequisitionList"/>
+            <module name="Magento_SharedCatalog"/>
+            <module name="Magento_CompanyCredit"/>
+            <module name="Magento_CatalogPermissions"/>
+            <module name="MagentoEse_B2bAdminConfigurations"/>
+            <module name="MagentoEse_SalesSampleData"/>
+            <module name="FireGento_FastSimpleImport"/>
+            <module name="MagentoEse_B2BCompanySampleData"/>
+            <module name="MagentoEse_B2BCatalogSampleData"/>
+            <module name="MagentoEse_B2BPhilipsSampleData"/>
+            <module name="MagentoEse_B2BSiemensSampleData"/>
+            <module name="MagentoEse_B2BLegrandSampleData"/>
+            <module name="MagentoEse_B2BMilwaukeeSampleData"/>
+            <module name="MagentoEse_B2BMiscSampleData"/>
+            <module name="Magento_Swatches"/>
+            <module name="Magento_SwatchesLayeredNavigation"/>
+            <module name="MagentoEse_B2BSharedCatalogSampleData"/>
+        </sequence>
+    </module>
+</config>
