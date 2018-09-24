@@ -83,7 +83,9 @@ class PreferredProducts
                     array ('website_id'=>0, 'cust_group'=>5, 'price_qty' => 10, 'percentage_value'=>10),
                     array ('website_id'=>0, 'cust_group'=>5, 'price_qty' => 20, 'percentage_value'=>20)
                 );
+                print "pre set data \n";
                 $tierProduct->setData('tier_price', $tierPriceData);
+                print "pre save \n";
                 $tierProduct->save();
                 //set product position to zero
                 foreach($preferredCategories as $preferredCategory) {
