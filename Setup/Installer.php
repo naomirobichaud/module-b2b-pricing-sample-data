@@ -30,8 +30,6 @@ class Installer implements Setup\SampleData\InstallerInterface
 
     /**
      * Installer constructor.
-     * @param \MagentoEse\B2BPricingSampleData\Model\CompanyCatalog $catalogSetup
-     * @param \MagentoEse\B2BPricingSampleData\Model\SharedCatalogConfig $sharedCatalogConfig
      * @param \MagentoEse\B2BPricingSampleData\Model\TierPricing $tierPricing
      * @param \MagentoEse\B2BPricingSampleData\Model\PreferredProducts $preferredProducts
      * @param \MagentoEse\B2BPricingSampleData\Model\Related $relatedProducts
@@ -54,10 +52,11 @@ class Installer implements Setup\SampleData\InstallerInterface
      */
     public function install()
     {   
+        print "starting\n";
         $this->relatedProducts->install(['MagentoEse_B2BPricingSampleData::fixtures/related_products.csv']);
-        print "related products";
+        print "related products\n";
         $this->preferredProducts->install(['MagentoEse_B2BPricingSampleData::fixtures/preferredproducts.csv']);
-        print "preferred products";
+        print "preferred products\n";
         $this->tierPricing->install([
             'MagentoEse_B2BPricingSampleData::fixtures/legrand_tier_pricing.csv',
             'MagentoEse_B2BPricingSampleData::fixtures/milwaukee_tier_pricing.csv',
