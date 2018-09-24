@@ -55,7 +55,7 @@ class Installer implements Setup\SampleData\InstallerInterface
         print "starting\n";
         $this->relatedProducts->install(['MagentoEse_B2BPricingSampleData::fixtures/related_products.csv']);
         print "related products\n";
-        $this->preferredProducts->install(['MagentoEse_B2BPricingSampleData::fixtures/preferredproducts.csv']);
+        ///$this->preferredProducts->install(['MagentoEse_B2BPricingSampleData::fixtures/preferredproducts.csv']);
         print "preferred products\n";
         $this->tierPricing->install([
             'MagentoEse_B2BPricingSampleData::fixtures/legrand_tier_pricing.csv',
