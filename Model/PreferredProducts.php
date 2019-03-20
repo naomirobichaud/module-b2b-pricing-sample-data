@@ -68,6 +68,7 @@ class PreferredProducts
             }
             $rows = $this->csvReader->getData($fileName);
             $header = array_shift($rows);
+            $position=1;
             foreach ($rows as $row) {
                 $data = [];
                 foreach ($row as $key => $value) {
@@ -85,18 +86,21 @@ class PreferredProducts
                 );
                 $tierProduct->setData('tier_price', $tierPriceData);
                 $tierProduct->save();
-                //set product position to zero
+                //set product position
+
                 foreach($preferredCategories as $preferredCategory) {
                     $categoryIds[] = $this->getIdFromPath($this->_initCategories(), $preferredCategory);
                     foreach ($categoryIds as $categoryId) {
                         $productId = $tierProduct->getId();
-                        $this->updateProductPosition($categoryId, $productId, 0);
+                        $this->updateProductPosition($categoryId, $productId, $position);
+
                     }
                 }
-
+                $position++;
             }
 
         }
+        $this->updateOtherProductsInCategory($preferredCategories);
     }
 
     /**
@@ -110,6 +114,18 @@ class PreferredProducts
         $tableName = $connection->getTableName('catalog_category_product');
         $sql = "update " . $tableName . " set position = ".$position." where category_id = ".$categoryId." and product_id=".$productId;
         $connection->query($sql);
+    }
+
+    private function updateOtherProductsInCategory($preferredCategories){
+        foreach($preferredCategories as $preferredCategory) {
+            $categoryIds[] = $this->getIdFromPath($this->_initCategories(), $preferredCategory);
+            foreach ($categoryIds as $categoryId) {
+                $connection = $this->resourceConnection->getConnection();
+                $tableName = $connection->getTableName('catalog_category_product');
+                $sql = "update " . $tableName . " set position = 100 where category_id = ".$categoryId." and position =  0";
+                $connection->query($sql);
+            }
+        }
     }
 
     /**
