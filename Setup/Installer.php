@@ -27,7 +27,7 @@ class Installer implements Setup\SampleData\InstallerInterface
      */
     public function __construct(
 
-        \MagentoEse\B2BPricingSampleData\Model\TierPricing $tierPricing,
+        \MagentoEse\B2BPricingSampleData\Model\TierPricing $tierPricing
     #    \MagentoEse\B2BPricingSampleData\Model\PreferredProducts $preferredProducts,
     #    \MagentoEse\B2BPricingSampleData\Model\Related $relatedProducts
 
@@ -46,7 +46,7 @@ class Installer implements Setup\SampleData\InstallerInterface
     #    $this->relatedProducts->install(['MagentoEse_B2BPricingSampleData::fixtures/related_products.csv']);
     #    $this->preferredProducts->install(['MagentoEse_B2BPricingSampleData::fixtures/preferredproducts.csv']);
         $this->tierPricing->install([
-            'MagentoEse_B2BPricingSampleData::fixtures/jewelry_products_tier_pricing.csv',
+            'MagentoEse_B2BPricingSampleData::fixtures/jewelry_products_tier_pricing.csv']);
     #        'MagentoEse_B2BPricingSampleData::fixtures/milwaukee_tier_pricing.csv',
     #        'MagentoEse_B2BPricingSampleData::fixtures/philips_tier_pricing.csv',
     #        'MagentoEse_B2BPricingSampleData::fixtures/siemens_tier_pricing.csv',
